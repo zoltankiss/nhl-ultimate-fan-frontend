@@ -8,7 +8,7 @@ export default function Games() {
 
 
    useEffect(() => {
-    fetch(`nhl_games`)
+    fetch(`https://nhlultimatefan.herokuapp.com/nhl_games`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
