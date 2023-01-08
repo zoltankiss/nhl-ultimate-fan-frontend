@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
+import {  Link } from 'react-router-dom';
 
 export default function Games() {
   const [data, setData] = useState(null);
@@ -8,7 +9,7 @@ export default function Games() {
 
 
    useEffect(() => {
-    fetch(`https://nhlultimatefan.herokuapp.com/nhl_games`)
+    fetch(`http://localhost:3000/nhl_games`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -18,7 +19,6 @@ export default function Games() {
         return response.json();
       })
       .then((actualData) => {
-        console.log(actualData)
         setData(actualData);
         setError(null);
       })
@@ -36,10 +36,9 @@ export default function Games() {
       <ul>
         {data &&
           data.map(({ id, link, status, away_team_name, home_team_name, game_date }) => (
-            <li key={id}>
-              <h1>{away_team_name} vs {home_team_name} ({status} {game_date})</h1>
-              <p>{status}</p>
-            </li>
+            <div key={id}>
+              <Link to={`/players/${id}`}>{away_team_name} vs {home_team_name} ({status} {game_date})</Link>
+            </div>
           ))}
       </ul>
     </ul>
