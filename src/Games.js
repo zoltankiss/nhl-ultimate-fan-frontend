@@ -9,7 +9,7 @@ export default function Games() {
 
 
    useEffect(() => {
-    fetch(`http://localhost:3000/nhl_games`)
+    fetch(`https://nhlultimatefan.herokuapp.com/nhl_games`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
