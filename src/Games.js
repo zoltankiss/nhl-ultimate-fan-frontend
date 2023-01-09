@@ -32,15 +32,30 @@ export default function Games() {
   }, []);
 
   return (
-    <ul>
+    <div>
+      <h1>Live Games</h1>
       <ul>
-        {data &&
-          data.map(({ id, link, status, away_team_name, home_team_name, game_date }) => (
-            <div key={id}>
-              <Link to={`/players/${id}`}>{away_team_name} vs {home_team_name} ({status} {game_date})</Link>
-            </div>
-          ))}
+        <ul>
+          {data &&
+            data.live_games.map(({ id, link, status, away_team_name, home_team_name, game_date }) => (
+              <div key={id}>
+                <Link to={`/players/${id}`}>{away_team_name} vs {home_team_name} ({status} {game_date})</Link>
+              </div>
+            ))}
+        </ul>
       </ul>
-    </ul>
+
+      <h1>Other Games</h1>
+      <ul>
+        <ul>
+          {data &&
+            data.other_games.map(({ id, link, status, away_team_name, home_team_name, game_date }) => (
+              <div key={id}>
+                <Link to={`/players/${id}`}>{away_team_name} vs {home_team_name} ({status} {game_date})</Link>
+              </div>
+            ))}
+        </ul>
+      </ul>
+    </div>
   );
 }
