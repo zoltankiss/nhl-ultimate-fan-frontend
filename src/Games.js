@@ -7,7 +7,6 @@ export default function Games() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
    useEffect(() => {
     fetch(`${process.env.REACT_APP_BACKEND_API_URI}/nhl_games`)
       .then((response) => {
@@ -34,6 +33,7 @@ export default function Games() {
   return (
     <div>
       <h1>Live Games</h1>
+      {(data && data.live_games.length == 0) && <div>No Data</div>}
       <ul>
         <ul>
           {data &&
