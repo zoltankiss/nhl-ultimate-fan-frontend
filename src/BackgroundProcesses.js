@@ -38,8 +38,8 @@ export default function Games() {
       <thead>
         <tr>
           <td className="tableHeader" scope="col">job name</td>
-          <td className="tableHeader" scope="col">further info</td>
           <td className="tableHeader" scope="col">ran at</td>
+          <td className="tableHeader" scope="col">further info</td>
         </tr>
       </thead>
       <tbody>
@@ -47,8 +47,8 @@ export default function Games() {
           data.map(({ id, job_name, label, created_at }) => (
             <tr key={id}>
               <td>{ job_name }</td>
-              <td>{ label }</td>
               <td>{ created_at }</td>
+              <td>{ label }</td>
             </tr>
           ))}
       </tbody>
