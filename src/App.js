@@ -17,7 +17,7 @@ function App() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-item nav-link" href="https://nhlultimatefan.herokuapp.com/background_processes">Background Processes</a>
+            <a className="nav-item nav-link" href="https://nhlultimatefanviewer.herokuapp.com/background_processes">Background Processes</a>
           </div>
         </div>
       </nav>
