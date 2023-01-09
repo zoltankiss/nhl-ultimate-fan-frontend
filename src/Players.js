@@ -47,7 +47,6 @@ export default function Players() {
           <td className="tableHeader" scope="col">hits</td>
           <td className="tableHeader" scope="col">points</td>
           <td className="tableHeader" scope="col">penalty minutes</td>
-          <td className="tableHeader" scope="col">opponent minutes</td>
           <td className="tableHeader" scope="col">opponent team</td>
         </tr>
       </thead>
@@ -67,7 +66,6 @@ export default function Players() {
               hits,
               points,
               penalty_minutes,
-              opponent_minutes,
               opponent_team
             }) => (
             <tr key={player_id}>
@@ -83,7 +81,6 @@ export default function Players() {
               <td>{ hits }</td>
               <td>{ points }</td>
               <td>{ penalty_minutes }</td>
-              <td>{ opponent_minutes }</td>
               <td>{ opponent_team }</td>
             </tr>
           ))}
