@@ -2,6 +2,22 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import {  Link } from 'react-router-dom';
 
+function gameLink(id, away_team_name, home_team_name, status, game_date, nhl_player_game_stats_count) {
+  if (nhl_player_game_stats_count == 0) {
+    return(
+      <div key={id}>
+        <a>{away_team_name} vs {home_team_name} ({status} {game_date})</a>
+      </div>
+    )
+  }
+
+  return(
+    <div key={id}>
+      <Link to={`/players/${id}`}>{away_team_name} vs {home_team_name} ({status} {game_date})</Link>
+    </div>
+  )
+}
+
 export default function Games() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -37,10 +53,8 @@ export default function Games() {
       <ul>
         <ul>
           {data &&
-            data.live_games.map(({ id, link, status, away_team_name, home_team_name, game_date }) => (
-              <div key={id}>
-                <Link to={`/players/${id}`}>{away_team_name} vs {home_team_name} ({status} {game_date})</Link>
-              </div>
+            data.live_games.map(({ id, link, status, away_team_name, home_team_name, game_date, nhl_player_game_stats_count }) => (
+              gameLink(id, away_team_name, home_team_name, status, game_date, nhl_player_game_stats_count)
             ))}
         </ul>
       </ul>
@@ -49,10 +63,8 @@ export default function Games() {
       <ul>
         <ul>
           {data &&
-            data.other_games.map(({ id, link, status, away_team_name, home_team_name, game_date }) => (
-              <div key={id}>
-                <Link to={`/players/${id}`}>{away_team_name} vs {home_team_name} ({status} {game_date})</Link>
-              </div>
+            data.other_games.map(({ id, link, status, away_team_name, home_team_name, game_date, nhl_player_game_stats_count }) => (
+              gameLink(id, away_team_name, home_team_name, status, game_date, nhl_player_game_stats_count)
             ))}
         </ul>
       </ul>
