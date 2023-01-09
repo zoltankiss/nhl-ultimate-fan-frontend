@@ -9,7 +9,7 @@ export default function Players() {
   let { nhl_game_id } = useParams();
 
   useEffect(() => {
-    fetch(`https://nhlultimatefan.herokuapp.com/nhl_games/${nhl_game_id}/nhl_player_game_stats`)
+    fetch(`${process.env.REACT_APP_BACKEND_API_URI}/nhl_games/${nhl_game_id}/nhl_player_game_stats`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(

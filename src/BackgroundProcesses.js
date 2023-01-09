@@ -9,7 +9,7 @@ export default function Games() {
 
 
    useEffect(() => {
-    fetch(`https://nhlultimatefan.herokuapp.com/background_processes`)
+    fetch(`${process.env.REACT_APP_BACKEND_API_URI}/background_processes`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
