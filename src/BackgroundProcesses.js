@@ -32,7 +32,7 @@ export default function Games() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h1>Background Processes</h1>
       <table className="table table-striped table-sm">
       <thead>
