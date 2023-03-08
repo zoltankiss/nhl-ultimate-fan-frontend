@@ -51,7 +51,8 @@ export default function Games() {
     <div>
       <h1>Live Games</h1>
       <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-      {(data && data.live_games.length == 0) && <div>No Data</div>}
+      {(data && data.live_games.length == 0) &&
+      <div className="col"><Container>No Data</Container></div>}
           {data &&
             data.live_games.map(({ id, link, status, away_team_name, home_team_name, game_date, nhl_player_game_stats_count, fun_facts }) => (
               <div className="col">
