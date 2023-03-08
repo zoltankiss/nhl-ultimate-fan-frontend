@@ -49,13 +49,23 @@ export default function Games() {
 
   return (
     <div>
+      <div className="jumbotron">
+        <h1 className="display-4">Welcome to NHL Ultimate Fan!</h1>
+        <hr className="my-4"></hr>
+        <p>Player and game stats are synced in real-time via NHL apis. Also, there are chatGPT-generated fun facts!</p>
+      </div>
       <div className="alert alert-info">
         We're now open source! Check us out on github! <a rel="noopener noreferrer" target="_blank" href="https://github.com/zoltankiss/nhl-ultimate-fan">api</a>, <a rel="noopener noreferrer" target="_blank" href="https://github.com/zoltankiss/nhl-ultimate-fan-frontend">frontend</a>
       </div>
+
       <h1>Live Games</h1>
-      <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
       {(data && data.live_games.length == 0) &&
-      <div className="col"><Container><h3>No Data</h3></Container></div>}
+        <center>
+            No results
+        </center>
+      }
+
+      <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
           {data &&
             data.live_games.map(({ id, link, status, away_team_name, home_team_name, game_date, nhl_player_game_stats_count, fun_facts }) => (
               <div className="col">
