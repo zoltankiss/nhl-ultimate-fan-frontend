@@ -49,6 +49,9 @@ export default function Games() {
 
   return (
     <div>
+      <div className="alert alert-info">
+        We're now open source! Check us out on <a rel="noopener noreferrer" target="_blank" href="https://github.com/zoltankiss/nhl-ultimate-fan">github</a>
+      </div>
       <h1>Live Games</h1>
       <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
       {(data && data.live_games.length == 0) &&
